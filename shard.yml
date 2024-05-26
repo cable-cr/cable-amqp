@@ -1,0 +1,24 @@
+name: cable-amqp
+version: 0.1.0
+
+authors:
+  - Jeremy Woertink <jeremywoertink@gmail.com>
+
+crystal: '>= 1.12.1'
+
+dependencies:
+  amqp-client:
+    github: cloudamqp/amqp-client.cr
+    version: ~> 1.2
+
+development_dependencies:
+  cable:
+    github: cable-cr/cable
+    branch: master
+    # version: ~> 0.4
+
+  ameba:
+    github: crystal-ameba/ameba
+    version: ~> 1.5.0
+
+license: MIT
