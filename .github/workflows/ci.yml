@@ -24,6 +24,12 @@ jobs:
           - crystal_version: nightly
             experimental: true
     runs-on: ubuntu-latest
+    services:
+      lavinmq:
+        image: cloudamqp/lavinmq
+        ports:
+          - 5672:5672
+          - 15672:15672
     container: crystallang/crystal:${{ matrix.crystal_version }}
     continue-on-error: ${{ matrix.experimental }}
     steps:
@@ -33,8 +39,6 @@ jobs:
         with:
           path: ~/.cache/crystal
           key: ${{ runner.os }}-crystal
-      - name: Setup LavinMQ
-        uses: cloudamqp/lavinmq-action@main
       - name: Install shards
         run: shards install
       - name: Format
